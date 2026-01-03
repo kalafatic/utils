@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="torrents"
+    nsURI="http:///torrents.ecore" nsPrefix="torrents">
+  <eClassifiers xsi:type="ecore:EClass" name="Torrents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="torrentMap" upperBound="-1"
+        eType="#//StringToExtTorrentMapEntry" containment="true">
+      <eAnnotations/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finishedTorrentsMap" upperBound="-1"
+        eType="#//StringToExtTorrentMapEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToExtTorrentMapEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ExtTorrent"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Torrent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="info" eType="#//Info" derived="true"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="announceList" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Info">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pieces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pieceLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hash" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="files" upperBound="-1"
+        eType="#//DataFile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPiecesPerFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtTorrent" eSuperTypes="#//Torrent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEnumerator"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="realBitfield" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelBitfield" eType="#//EBooleanArray"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="handshake" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lock" eType="#//Lock" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalInfo" lowerBound="1"
+        eType="#//AdditionalInfo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="map" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments/>
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditionalInfo" eSuperTypes="#//SpeedInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seeds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        transient="true" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="peers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        transient="true" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloaders" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        transient="true" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uploaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completedPieces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeedInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dwnldSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upldSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lock" eType="#//Lock" transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataFile" eSuperTypes="#//DataFileInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="md5sum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataFileInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pieces" eType="#//EIntegerArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="begin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lock" eType="#//Lock" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="raf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recorded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBooleanArray" instanceClassName="boolean[]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EIntegerArray" instanceClassName="int[]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Lock" instanceClassName="java.util.concurrent.locks.ReentrantReadWriteLock"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ETorrentTableColumns">
+    <eLiterals name="ENABLED_COL" literal="Enabled"/>
+    <eLiterals name="NAME_COL" value="1" literal="Name"/>
+    <eLiterals name="STATUS_COL" value="2" literal="Status"/>
+    <eLiterals name="SEEDS_COL" value="3" literal="Seeds"/>
+    <eLiterals name="PEERS_COL" value="4" literal="Peers"/>
+    <eLiterals name="DOWNLOADERS_COL" value="5" literal="Downloaders"/>
+    <eLiterals name="SIZE_COL" value="6" literal="Size"/>
+    <eLiterals name="PIECES_COL" value="7" literal="Pieces"/>
+    <eLiterals name="DOWNLOADED_COL" value="8" literal="Downloaded"/>
+    <eLiterals name="COMPLETED_COL" value="9" literal="Percent"/>
+    <eLiterals name="UPLOADED_COL" value="10" literal="Uploaded"/>
+    <eLiterals name="DWNLD_SPEED_COL" value="11" literal="Dwnld speed"/>
+    <eLiterals name="UPLD_SPEED_COL" value="12" literal="Upld speed"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EFinishedTableColumns">
+    <eLiterals name="ENABLED_COL" literal="Enabled"/>
+    <eLiterals name="NAME_COL" value="1" literal="Name"/>
+    <eLiterals name="STATUS_COL" value="2" literal="Status"/>
+    <eLiterals name="DOWNLOADERS_COL" value="3" literal="Downloaders"/>
+    <eLiterals name="SIZE_COL" value="4" literal="Size"/>
+    <eLiterals name="PIECES_COL" value="5" literal="Pieces"/>
+    <eLiterals name="UPLOADED_COL" value="6" literal="Uploaded"/>
+    <eLiterals name="UPLD_SPEED_COL" value="7" literal="Upld speed"/>
+  </eClassifiers>
+</ecore:EPackage>

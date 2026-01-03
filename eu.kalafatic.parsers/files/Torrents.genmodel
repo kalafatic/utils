@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.kalafatic.gemini.bt.client.model/src"
+    modelPluginID="eu.kalafatic.gemini.bt.client.model" modelName="Torrents" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>Torrents.ecore</foreignModel>
+  <genPackages prefix="Torrents" basePackage="eu.kalafatic.gemini.bt.client.model"
+      disposableProviderFactory="true" ecorePackage="Torrents.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Torrents.ecore#//ETorrentTableColumns">
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/ENABLED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/NAME_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/STATUS_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/SEEDS_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/PEERS_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/DOWNLOADERS_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/SIZE_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/PIECES_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/DOWNLOADED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/COMPLETED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/UPLOADED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/DWNLD_SPEED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//ETorrentTableColumns/UPLD_SPEED_COL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Torrents.ecore#//EFinishedTableColumns">
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/ENABLED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/NAME_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/STATUS_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/DOWNLOADERS_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/SIZE_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/PIECES_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/UPLOADED_COL"/>
+      <genEnumLiterals ecoreEnumLiteral="Torrents.ecore#//EFinishedTableColumns/UPLD_SPEED_COL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Torrents.ecore#//EBooleanArray"/>
+    <genDataTypes ecoreDataType="Torrents.ecore#//EIntegerArray"/>
+    <genDataTypes ecoreDataType="Torrents.ecore#//Lock"/>
+    <genClasses ecoreClass="Torrents.ecore#//Torrents">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Torrents.ecore#//Torrents/torrentMap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Torrents.ecore#//Torrents/finishedTorrentsMap"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//StringToExtTorrentMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//StringToExtTorrentMapEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Torrents.ecore#//StringToExtTorrentMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//Torrent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/creationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/creationBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/modifiedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/encoding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Torrents.ecore#//Torrent/info"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Torrent/announceList"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//Info">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Info/pieces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Info/pieceLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Info/private"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Info/hash"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Torrents.ecore#//Info/files"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//Info/maxPiecesPerFile"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//ExtTorrent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/row"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/finished"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/realBitfield"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/modelBitfield"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/handshake"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/lock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Torrents.ecore#//ExtTorrent/additionalInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//ExtTorrent/map"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//AdditionalInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/seeds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/peers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/downloaders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/downloaded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/uploaded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/completed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/completedPieces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//AdditionalInfo/fileSize"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//SpeedInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//SpeedInfo/dwnldSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//SpeedInfo/upldSpeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//SpeedInfo/lock"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//DataFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFile/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFile/md5sum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFile/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFile/length"/>
+    </genClasses>
+    <genClasses ecoreClass="Torrents.ecore#//DataFileInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/pieces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/begin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/lock"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/raf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Torrents.ecore#//DataFileInfo/recorded"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
