@@ -2,17 +2,74 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.kalafatic.utils</groupId>
   <artifactId>eu.kalafatic.protocols</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
-        <configuration>
-          <release>21</release>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <version>2.6.1-SNAPSHOT</version>
+  
+  	<properties>
+		<tycho.targetPlatform>platform</tycho.targetPlatform>
+	</properties>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>icons</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-director-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<!--Enable the replacement of the SNAPSHOT version in the final product configuration-->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<id>package-feature</id>
+						<configuration>
+							<finalName>
+								${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<executionEnvironment>JavaSE-21</executionEnvironment>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+	<repositories>
+		<repository>
+			<id>eclipse</id>
+			<layout>p2</layout>
+			<url>https://download.eclipse.org/releases/2025-12</url>
+		</repository>
+	</repositories>
+	<packaging>eclipse-plugin</packaging>
 </project>

@@ -13,10 +13,11 @@ package eu.kalafatic.utils.preferences;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
-import org.eclipse.core.databinding.beans.BeanProperties;
+import org.eclipse.core.databinding.beans.typed.BeanProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.fieldassist.FieldDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
@@ -68,7 +69,18 @@ public class PortExplorerPage extends APreferencePage {
 
 	/** The discover port value. */
 
-	private IObservableValue discoverPortValue = BeanProperties.value(getClass(), "discoverPort").observe(this);
+	private IObservableValue discoverPortValue = BeanProperties.value("discoverPort").observe(this);
+//	DataBindingContext dbc = new DataBindingContext();
+//
+//	IObservableValue<Integer> model =
+//	    BeanProperties.value("discoverPort").observe(this);
+//
+//	IObservableValue<String> widget =
+//	    WidgetProperties.text(SWT.Modify).observe(portText);
+//
+//	dbc.bindValue(widget, model,
+//	    new UpdateValueStrategy<>(),
+//	    new UpdateValueStrategy<>());
 
 	/** The data binding context. */
 	private DataBindingContext dataBindingContext = new DataBindingContext();
@@ -145,9 +157,11 @@ public class PortExplorerPage extends APreferencePage {
 		for (int i = 0; i < tableColumns.length; i++) {
 			GUIFactory.INSTANCE.createTableColumn(discoverPortTable, SWT.LEFT, tableColumns[i]).pack();
 		}
-
-		discoverPortBinding = dataBindingContext.bindValue(SWTObservables.observeText(discoverPortText, SWT.Modify), discoverPortValue,
+		
+		discoverPortBinding = dataBindingContext.bindValue(WidgetProperties.text(SWT.Modify).observe(discoverPortText), discoverPortValue,
 				new UpdateValueStrategy().setAfterConvertValidator(ValidationUtils.INSTANCE.getDiscoverPortValidator(discoverPortText)), null);
+//		discoverPortBinding = dataBindingContext.bindValue(SWTObservables.observeText(discoverPortText, SWT.Modify), discoverPortValue,
+//				new UpdateValueStrategy().setAfterConvertValidator(ValidationUtils.INSTANCE.getDiscoverPortValidator(discoverPortText)), null);
 	}
 
 	// ---------------------------------------------------------------

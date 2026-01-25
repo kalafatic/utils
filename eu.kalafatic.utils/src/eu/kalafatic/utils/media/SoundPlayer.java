@@ -19,9 +19,9 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import javax.media.Manager;
-import javax.media.MediaLocator;
-import javax.media.Player;
+//import javax.media.Manager;
+//import javax.media.MediaLocator;
+//import javax.media.Player;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -38,6 +38,9 @@ import org.eclipse.swt.widgets.Display;
 import eu.kalafatic.utils.constants.FConstants;
 import eu.kalafatic.utils.log.Log;
 import eu.kalafatic.utils.preferences.ECorePreferences;
+import javafx.application.Platform;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * The Class class SoundPlayer.
@@ -66,12 +69,14 @@ public class SoundPlayer implements LineListener {
 	/** The clip. */
 	private Clip clip;
 
-	/** The mp3 player. */
-	private Player mp3Player;
-
-	/** The media locator. */
-	private MediaLocator mediaLocator;
-
+//	/** The mp3 player. */
+//	private Player mp3Player;
+//
+//	/** The media locator. */
+//	private MediaLocator mediaLocator;
+	
+	private MediaPlayer mediaPlayer;
+	
 	/** The INSTANCE. */
 	private static SoundPlayer INSTANCE;
 
@@ -231,25 +236,48 @@ public class SoundPlayer implements LineListener {
 	 * Play m p3.
 	 * @param clipURL the clip url
 	 */
+//	private void playMP3(final URL clipURL) {
+//		Display.getDefault().asyncExec(new Runnable() {
+//			@Override
+//			public void run() {
+//				try {
+//					mediaLocator = new MediaLocator(clipURL);
+//					mp3Player = Manager.createPlayer(mediaLocator);
+//
+//					mp3Player.realize();
+//					mp3Player.start();
+//
+//				} catch (Exception e) {
+//					System.out.println(e.getMessage());
+//				} finally {
+//					mp3Player.stop();
+//					mp3Player.close();
+//				}
+//			}
+//		});
+//	}
+	
+	
+
 	private void playMP3(final URL clipURL) {
-		Display.getDefault().asyncExec(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					mediaLocator = new MediaLocator(clipURL);
-					mp3Player = Manager.createPlayer(mediaLocator);
+	    FxInit.init();
 
-					mp3Player.realize();
-					mp3Player.start();
+	    Platform.runLater(() -> {
+	        try {
+	            Media media = new Media(clipURL.toExternalForm());
+	            mediaPlayer = new MediaPlayer(media);
 
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-				} finally {
-					mp3Player.stop();
-					mp3Player.close();
-				}
-			}
-		});
+	            mediaPlayer.setOnEndOfMedia(() -> {
+	                mediaPlayer.stop();
+	                mediaPlayer.dispose();
+	            });
+
+	            mediaPlayer.play();
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    });
 	}
 
 	// ---------------------------------------------------------------

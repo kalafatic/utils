@@ -4,99 +4,74 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.kalafatic.utils</groupId>
 	<artifactId>eu.kalafatic.parsers</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.6.1-SNAPSHOT</version>
+	
+	<properties>
+		<tycho.targetPlatform>platform</tycho.targetPlatform>
+	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>icons</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-director-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.13.0</version>
-				<configuration>
-					<release>21</release>
-				</configuration>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
 			</plugin>
-
+			<!--Enable the replacement of the SNAPSHOT version in the final product configuration-->
 			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.3.1</version>
-				<executions>
-					<execution>
-						<id>copy-jar</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.basedir}/jar</outputDirectory>
-							<!-- FORCE overwrite -->
-        					<overwrite>true</overwrite>
-							<resources>
-								<resource>
-									<directory>${project.build.directory}</directory>
-									<includes>
-										<include>*.jar</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin><!--
-    
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.4.2</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>eu.kalafatic.parsers.main.Parser</mainClass>
-						</manifest>
-					</archive>
-					<outputDirectory>${project.basedir}/dist</outputDirectory>
-					<resources>
-						<resource>
-							<directory>${project.build.directory}</directory>
-							<includes>
-								<include>*.jar</include>
-							</includes>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.6.0</version>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
+						<id>package-feature</id>
 						<configuration>
-							<transformers>
-								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>eu.kalafatic.Main</mainClass>
-								</transformer>
-							</transformers>
-							<outputDirectory>${project.basedir}/dist</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${project.build.directory}</directory>
-									<includes>
-										<include>*.jar</include>
-									</includes>
-								</resource>
-							</resources>
+							<finalName>
+								${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
 						</configuration>
 					</execution>
+
 				</executions>
-			</plugin>-->
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<executionEnvironment>JavaSE-21</executionEnvironment>
+				</configuration>
+			</plugin>
 
 		</plugins>
-	</build>
 
+	</build>
+	<repositories>
+		<repository>
+			<id>eclipse</id>
+			<layout>p2</layout>
+			<url>https://download.eclipse.org/releases/2025-12</url>
+		</repository>
+	</repositories>
+	<packaging>eclipse-plugin</packaging>
 </project>

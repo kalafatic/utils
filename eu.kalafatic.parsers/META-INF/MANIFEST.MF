@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Protocols
-Bundle-SymbolicName: eu.kalafatic.protocols
+Bundle-SymbolicName: eu.kalafatic.parsers
 Bundle-Version: 2.6.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Import-Package: org.eclipse.emf.edit.provider,

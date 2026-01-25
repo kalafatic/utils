@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Utils
 Bundle-SymbolicName: eu.kalafatic.utils;singleton:=true
 Bundle-Version: 2.6.1.qualifier
-Bundle-RequiredExecutinnvironment: JavaSE-25
+Bundle-RequiredExecutinnvironment: JavaSE-21
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Import-Package: com.ibm.icu.text;version="[0.0.0,1.0.0)",
  eu.kalafatic.utils.application;version="[0.0.0,1.0.0)",
@@ -13,6 +13,7 @@ Import-Package: com.ibm.icu.text;version="[0.0.0,1.0.0)",
  org.eclipse.core.commands,
  org.eclipse.core.databinding,
  org.eclipse.core.databinding.beans,
+ org.eclipse.core.databinding.beans.typed;version="[1.0.0,2.0.0)",
  org.eclipse.core.databinding.observable.value,
  org.eclipse.core.databinding.property.value,
  org.eclipse.core.databinding.validation,
@@ -38,6 +39,7 @@ Import-Package: com.ibm.icu.text;version="[0.0.0,1.0.0)",
  org.eclipse.jface,
  org.eclipse.jface.action,
  org.eclipse.jface.databinding.swt,
+ org.eclipse.jface.databinding.swt.typed,
  org.eclipse.jface.dialogs,
  org.eclipse.jface.fieldassist,
  org.eclipse.jface.operation,
