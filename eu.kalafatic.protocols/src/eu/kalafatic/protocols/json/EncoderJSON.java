@@ -19,8 +19,6 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import javax.validation.constraints.Size;
 
-import org.junit.BeforeClass;
-
 import com.google.gson.Gson;
 
 import eu.kalafatic.protocols.annotations.PositiveInt;
@@ -44,7 +42,7 @@ public class EncoderJSON extends AEncoder {
 
 	private static Validator validator;
 
-	@BeforeClass
+	//@BeforeClass
 	public static void setUp() {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();

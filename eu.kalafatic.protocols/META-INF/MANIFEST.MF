@@ -1,8 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Automatic-Module-Name: eu.kalafatic.protocols
 Bundle-Name: Protocols
-Bundle-SymbolicName: eu.kalafatic.protocols
+Bundle-SymbolicName: eu.kalafatic.protocols;singleton:=true
 Bundle-Version: 2.6.1.qualifier
+Bundle-Vendor: Kalafatic Technologies
+Bundle-Description: A collection of protocols for various applications.
+Bundle-Activator: eu.kalafatic.protocols.Activator
+Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
-Import-Package: org.eclipse.emf.edit.provider,
- org.eclipse.wst.validation
+Import-Package: javax.validation.constraints;version="[2.0,3.0)"

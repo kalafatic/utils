@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Automatic-Module-Name: eu.kalafatic.parsers
 Bundle-Name: Protocols
 Bundle-SymbolicName: eu.kalafatic.parsers
 Bundle-Version: 2.6.1.qualifier
