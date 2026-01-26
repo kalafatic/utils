@@ -5,5 +5,11 @@ Bundle-Name: Protocols
 Bundle-SymbolicName: eu.kalafatic.parsers
 Bundle-Version: 2.6.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: eu.kalafatic.parsers.decoders,
+ eu.kalafatic.parsers.interfaces,
+ eu.kalafatic.parsers.lib.constants,
+ eu.kalafatic.parsers.main,
+ eu.kalafatic.parsers.parsers,
+ eu.kalafatic.parsers.utils
 Import-Package: org.eclipse.emf.edit.provider,
  org.eclipse.wst.validation
