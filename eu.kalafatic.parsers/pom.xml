@@ -2,13 +2,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>eu.kalafatic.utils</groupId>
+	<parent>
+		<groupId>eu.kalafatic.utils</groupId>
+		<artifactId>parent</artifactId>
+		<version>2.6.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 	<artifactId>eu.kalafatic.parsers</artifactId>
-	<version>2.6.1-SNAPSHOT</version>
 	
-	<properties>
-		<tycho.targetPlatform>platform</tycho.targetPlatform>
-	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
@@ -20,23 +21,7 @@
 			</resource>
 		</resources>
 
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-director-plugin</artifactId>
-					<version>${tycho.version}</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
 		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<extensions>true</extensions>
-			</plugin>
 			<!--Enable the replacement of the SNAPSHOT version in the final product configuration-->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
@@ -54,24 +39,7 @@
 
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
-				<configuration>
-					<executionEnvironment>JavaSE-21</executionEnvironment>
-				</configuration>
-			</plugin>
-
 		</plugins>
-
 	</build>
-	<repositories>
-		<repository>
-			<id>eclipse</id>
-			<layout>p2</layout>
-			<url>https://download.eclipse.org/releases/2025-12</url>
-		</repository>
-	</repositories>
 	<packaging>eclipse-plugin</packaging>
 </project>
