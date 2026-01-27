@@ -17,6 +17,7 @@
       <unit id="org.eclipse.core.databinding.property"/>
       <unit id="org.eclipse.jface.databinding"/>
       <unit id="org.eclipse.jface.databinding.swt"/>
+      <unit id="org.json" version="0.0.0"/>
     </location>
   </locations>
 	<environment>

@@ -11,7 +11,8 @@ Export-Package: eu.kalafatic.parsers.decoders,
  eu.kalafatic.parsers.main,
  eu.kalafatic.parsers.parsers,
  eu.kalafatic.parsers.utils
- Import-Package: javax.xml.parsers,
-  org.eclipse.emf.edit.provider,
-  org.eclipse.wst.validation,
-  org.w3c.dom
+Import-Package: javax.xml.parsers,
+ org.eclipse.emf.edit.provider,
+ org.eclipse.wst.validation,
+ org.json,
+ org.w3c.dom

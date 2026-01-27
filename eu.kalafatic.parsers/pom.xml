@@ -9,7 +9,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>eu.kalafatic.parsers</artifactId>
-	
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
