@@ -8,12 +8,10 @@ Bundle-Vendor: Kalafatic Technologies
 Bundle-Description: A collection of protocols for various applications.
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
-Export-Package: eu.kalafatic.protocols,
- eu.kalafatic.protocols.annotations,
+Export-Package: eu.kalafatic.protocols.annotations,
  eu.kalafatic.protocols.annotations.validators,
  eu.kalafatic.protocols.bittorrent,
  eu.kalafatic.protocols.interfaces,
  eu.kalafatic.protocols.json
-Import-Package: com.google.gson;version="2.11.0",
- javax.validation;version="[2.0,3.0)",
- javax.validation.constraints;version="[2.0,3.0)"
+Require-Bundle: com.google.gson,
+ javax.validation.api
