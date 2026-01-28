@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="eu.kalafatic.utils.feature"
+      label="Feature"
+      version="2.6.1.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="eu.kalafatic.utils"
+         version="0.0.0"/>
+
+   <plugin
+         id="eu.kalafatic.parsers"
+         version="0.0.0"/>
+
+   <plugin
+         id="eu.kalafatic.protocols"
+         version="0.0.0"/>
+
+   <plugin
+         id="eu.kalafatic.utils.lib"
+         version="0.0.0"/>
+
+</feature>

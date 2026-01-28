@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: lib
+Bundle-SymbolicName: eu.kalafatic.utils.lib;singleton:=true
+Bundle-Version: 2.6.1
+Automatic-Module-Name: eu.kalafatic.utils.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: org.json
